@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Food city grocery</title>
 </head>
 <body>
-    
+     
+        <header class="display-flex justify-space-between align-center p-2">
+         <h1>
+        <a href="/">Food City Grocery</a>
+        </h1> 
+        </header>
+          <nav>
+             <a href="/">Home</a>
+        <!-- Conditionally render login or logout links -->
+             {{#if logged_in}}
+             <a href="/profile">Profile</a> |
+             <button class="no-button" id="logout">Logout</button>
+             {{else}}
+             <a href="/login">Login</a>
+             {{/if}}
+             <a hfre="/cart">Cart</a>
+         </nav>
+       
+    <main class="container container-fluid mt-5">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer>
+      
+    </footer>
+  
+   {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 </html>
