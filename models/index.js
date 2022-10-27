@@ -1,6 +1,6 @@
 // import models
-const Product = require("./Product");
-const Category = require("./Category");
+const Product = require("./product");
+const Category = require("./category");
 const Cart = require("./cart");
 const User = require("./User");
 
@@ -14,6 +14,7 @@ Category.hasMany(Product, { foreignKey: "category_id" });
 Product.belongsToMany(User, {
   through: {
     model: Cart,
+    unique: false,
   },
   onDelete: "CASCADE",
 });
@@ -22,6 +23,7 @@ Product.belongsToMany(User, {
 User.belongsToMany(Product, {
   through: {
     model: Cart,
+    unique: false,
   },
   onDelete: "CASCADE",
 });
