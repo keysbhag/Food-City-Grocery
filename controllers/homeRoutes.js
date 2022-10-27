@@ -1,10 +1,9 @@
 const router = require("express").Router();
-const { User, Category, Product } = require("../models");
+const { User, Category, Product, Cart } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
     const categoryData = await Category.findAll({
       attributes: ['id','category_name'],  
       include: [
@@ -14,7 +13,6 @@ router.get("/", async (req, res) => {
         },
       ],
     });
-
     // Serialize data so the template can read it
     const categories = categoryData.map((category) => category.get({ plain: true }));
 
@@ -28,47 +26,55 @@ router.get("/", async (req, res) => {
   }
 });
 
-// router.get("/category/:id", async (req, res) => {
-//   try {
-//     const projectData = await Category.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: Product,
-//           attributes: ["product_name", "price", ""],
-//         },
-//       ],
-//     });
+router.get("/category/:id", async (req, res) => {
+  try {
+    const prodData = await Category.findByPk(req.params.id, {
+      include: [
+        {
+          model: Product,
+          attributes: ["product_name", "price", "stock"],
+        },
+      ],
+    });
 
-//     const project = projectData.get({ plain: true });
+    const productsByCat = prodData.get({ plain: true });
 
-//     res.render("project", {
-//       ...project,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    res.render("products", {
+      ...productsByCat,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // Use withAuth middleware to prevent access to route
-// router.get("/profile", withAuth, async (req, res) => {
-//   try {
-//     // Find the logged in user based on the session ID
-//     const userData = await User.findByPk(req.session.user_id, {
-//       attributes: { exclude: ["password"] },
-//       include: [{ model: Project }],
-//     });
+router.get("/cart", withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const cartData = await User.findByPk(req.session.user_id, {
+      attributes: ['username','email'],
+      include: [
+        { 
+          model: Product,
+          through: {
+            model: Cart,
+            attributes: ['id','product_id','user_id','quantity']
+          }
+        }
+      ],
+    });
 
-//     const user = userData.get({ plain: true });
+    const userCart = cartData.get({ plain: true });
 
-//     res.render("profile", {
-//       ...user,
-//       logged_in: true,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    res.render("checkout", {
+      ...userCart,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
