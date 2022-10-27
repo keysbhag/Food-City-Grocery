@@ -1,0 +1,30 @@
+[
+    {
+      "product_name": "Beef",
+      "price": 9.99,
+      "stock": 55,
+      "category_id": 1,
+      "filename":"01-product-beef.jpg"
+    },
+    {
+        "product_name": "Banana",
+        "price": 1.99,
+        "stock": 199,
+        "category_id": 2,
+        "filename":"02-product-banana.jpg"
+    },
+    {
+        "product_name": "Milk",
+        "price": 9.99,
+        "stock": 60,
+        "category_id": 3,
+        "filename":"03-product-milk.jpg"
+      },
+      {
+        "product_name": "Chocolate Cake",
+        "price": 24.99,
+        "stock": 5,
+        "category_id": 4,
+        "filename":"04-product-choCake.jpg"
+      }
+  ]
