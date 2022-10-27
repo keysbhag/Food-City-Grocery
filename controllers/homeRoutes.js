@@ -13,10 +13,9 @@ router.get("/", async (req, res) => {
         },
       ],
     });
-    // Serialize data so the template can read it
+
     const categories = categoryData.map((category) => category.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
     res.render("homepage", {
       categories,
       logged_in: req.session.logged_in,
@@ -53,13 +52,11 @@ router.get("/cart", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const cartData = await User.findByPk(req.session.user_id, {
-      attributes: ['username','email'],
       include: [
         { 
           model: Product,
           through: {
             model: Cart,
-            attributes: ['id','product_id','user_id','quantity']
           }
         }
       ],
