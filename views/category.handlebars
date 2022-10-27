@@ -1,0 +1,15 @@
+<section class="container">
+  <h3 class="gallery-name">{{category_name}}</h3>
+  <section class="flex-row justify-center">
+    {{#each category.products as |product|}}
+    <section class="card">
+        <header>{{product_name}}</header>
+        <div class="card-body">
+          <img src="/images/{{filename}}">
+          <p>Stock:     {{stock}}</p>
+          <p>Price:     {{price}}</p>
+          <button id="addcartbtn">Add to cart</button>
+        </div>
+      </a>
+    </section>
+  </section>
