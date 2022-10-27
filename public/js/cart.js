@@ -25,6 +25,26 @@ const newFormHandler = async (event) => {
   }
 };
 
+const delItemHandler = async (event) => {
+  if (event.target.hasAttribute("data-id")) {
+    const id = event.target.getAttribute("data-id");
+
+    const response = await fetch(`/api/cart/${id}`, {
+      method: "DELETE",
+    });
+
+    if (response.ok) {
+      document.location.replace("/cart");
+    } else {
+      alert("Failed to delete item");
+    }
+  }
+};
+
 document
   .querySelector(".new-item-list")
   .addEventListener("submit", newCartItem);
+
+document
+  .querySelector(".cart-list")
+  .addEventListener("click", delItemHandler);
