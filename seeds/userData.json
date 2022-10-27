@@ -1,0 +1,27 @@
+[
+    {
+      "name": "Xin",
+      "email": "Xin@hotmail.com",
+      "password": "password12345",
+      "is_admin": true
+    },
+    {
+      "name": "Keyshawn",
+      "email": "Keyshawn@gmail.com",
+      "password": "password12345",
+      "is_admin": true
+    },
+    {
+      "name": "Abdirahman",
+      "email": "Abdirahman@aol.com",
+      "password": "password12345",
+      "is_admin": true
+    },
+    {
+        "name": "John",
+        "email": "John@aol.com",
+        "password": "password12345",
+        "is_admin": false
+    }
+]
+  
