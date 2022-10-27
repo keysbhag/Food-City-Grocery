@@ -39,7 +39,7 @@ router.get("/category/:id", async (req, res) => {
 
     const productsByCat = prodData.get({ plain: true });
 
-    res.render("products", {
+    res.render("category", {
       ...productsByCat,
       logged_in: req.session.logged_in,
     });
@@ -70,6 +70,26 @@ router.get("/cart", withAuth, async (req, res) => {
     res.render("checkout", {
       ...userCart,
       logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Product, 
+        through: { model: Cart}
+      }]
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('profile', {
+      ...user,
+      logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);

@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-auto">
+    <h1>Welcome, {{name}}!</h1>
+  </div>
+</div>
+
+{{#if product.length}}
+<h2>Your items will be ready soon.</h2>
+{{else}}
+<h2>Your cart is empty<a href="/">Go shopping!</a></h2>
+{{/if}}
