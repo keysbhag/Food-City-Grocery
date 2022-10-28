@@ -37,7 +37,7 @@ router.get("/category/:id", async (req, res) => {
     });
 
     const productsByCat = prodData.get({ plain: true });
-
+    
     res.render("category", {
       ...productsByCat,
       logged_in: req.session.logged_in,
@@ -50,7 +50,6 @@ router.get("/category/:id", async (req, res) => {
 // Use withAuth middleware to prevent access to route
 router.get("/cart", withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
     const cartData = await User.findByPk(req.session.user_id, {
       include: [
         { 

@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { User, Category, Product, Cart } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+// POST new cart
 router.post("/", withAuth, async (req, res) => {
   try {
     const newItem = await Cart.create({
@@ -15,21 +16,22 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+// PUT (update) existing cart
 router.put("/:id", withAuth, async (req, res) => {
   try {
     // updates entry
     const change = {
-        user_id: req.session.user_id,
-        ...req.body,
-    }
+      user_id: req.session.user_id,
+      ...req.body,
+    };
     const cartData = await Cart.update(change, {
-        where: {
+      where: {
         id: req.params.id,
-        },
+      },
     });
     if (!cartData[0]) {
-        res.status(404).json({ message: "No cart with this id!" });
-        return;
+      res.status(404).json({ message: "No cart with this id!" });
+      return;
     }
     res.status(200).json(cartData);
   } catch (err) {
@@ -56,8 +58,5 @@ router.delete("/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
-
 
 module.exports = router;
