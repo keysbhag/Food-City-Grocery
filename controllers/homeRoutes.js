@@ -63,8 +63,8 @@ router.get("/cart", withAuth, async (req, res) => {
     });
 
     const userCart = cartData.get({ plain: true });
-
-    res.render("checkout", {
+    
+    res.render("cart", {
       ...userCart,
       logged_in: true,
     });

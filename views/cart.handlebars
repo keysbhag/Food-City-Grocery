@@ -1,0 +1,21 @@
+ {{#each carts as |cart|}}
+    <div class="row">
+      <div class="col-md-3">
+        <h4>{{cart.product.name}}</h4>    {{!-- adjust later --}}
+      </div>
+       <div class="col-md-3">
+        <h4>Price: {{price}}</h4>
+        </div>
+        <div class="col-md-3">
+        <h4>Quantity: {{quantity}}</h4>
+        </div>
+      <div class="col-md-3">
+        <button class="btn btn-sm btn-danger" data-id="{{cart.id}}">DELETE</button>
+      </div>
+    </div>
+{{/each}}
+<div class="row">
+    <h2>Your total: </h2>
+
+    <button type="button" class="btn btn-outline-primary"><a href="/checkout">Checkout</a></button>
+</div>
