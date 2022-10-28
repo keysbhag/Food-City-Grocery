@@ -1,4 +1,4 @@
-const newFormHandler = async (event) => {
+const newCartItem = async (event) => {
   event.preventDefault();
   let product_id;
   let quantity;
@@ -25,11 +25,28 @@ const newFormHandler = async (event) => {
   }
 };
 
-// const updateItemHandler = async (event) => {
-//   if (event.target.hasAttribute){
+const updateItemHandler = async (event) => {
+  if (event.target.hasAttribute("data-id")){
+    const id = event.target.getAttribute("data-id");
+    const product_id = event.target.getAttribute("data-descr");
+    const quantity = document.querySelector(`#${product_id}`).value.trim();
 
-//   }
-// }
+    const response = await fetch(`/api/cart/${id}`, {
+      method: "PUT",
+      body: JSON.stringify({ product_id, quantity }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      document.location.replace("/cart"); // figure out later
+    } else {
+      alert("Failed to update item");
+    }
+
+  }
+}
 
 const delItemHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
@@ -54,3 +71,7 @@ document
 document
   .querySelector(".cart-list")
   .addEventListener("click", delItemHandler);
+
+document
+  .querySelector(".edit-button")
+  .addEventListener("click", updateItemHandler);
