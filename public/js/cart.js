@@ -40,7 +40,7 @@ const delItemHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/cart");
+      document.location.replace("/cart"); // figure out later
     } else {
       alert("Failed to delete item");
     }
