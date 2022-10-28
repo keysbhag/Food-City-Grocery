@@ -4,8 +4,9 @@ const checkoutSubmission = async (event) => {
   const creditCard = document.querySelector("#creditcard-num").value.trim(); // may have to parseint
   const month = document.querySelector("#month").value.trim(); // may have to parseint
   const year = document.querySelector("#year").value.trim(); // may have to parseint
+  const address = document.querySelector('#address').value.trim();
 
-  if (creditCard && month && year) {
+  if (creditCard && month && year && address) {
     const response = await fetch("/api/checkout", {
       method: "POST",
       body: JSON.stringify({ creditCard, month, year }),
