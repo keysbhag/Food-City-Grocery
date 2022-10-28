@@ -1,13 +1,10 @@
 <div class="row">
   <div class="col-auto">
     <h1>Welcome, {{name}}!</h1>
+
+    <h2><a href="/">Changing Password</a></h2>
+    <h2><a href="/">Changing Email Address</a></h2>
+    <h2><a href="/cart">View your cart</a></h2>
   </div>
 </div>
-
-{{#if product.length}}
-<h2>Your items will be ready soon.</h2>
-{{else}}
-<h2>Your cart is empty<a href="/">Go shopping!</a></h2>
-{{/if}}
-
 <script src="/js/logout.js"></script>
