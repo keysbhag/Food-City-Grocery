@@ -19,9 +19,9 @@ router.post("/", withAuth, async (req, res) => {
           user_id: req.session.user_id,
         },
       });
-      res.status(200).json(`You have successfully cashed out!`+newItem);
+      res.status(200).json(`You have successfully cashed out ${newItem}!`);
     } else {
-      res.status(404).json({ message: `entered card info is invalid! ${err}` });
+      res.status(404).json({ message: `entered card info is invalid! ${err}`});
     }
   } catch (err) {
     res.status(400).json(err);
