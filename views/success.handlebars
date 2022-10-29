@@ -1,20 +1,5 @@
-<section class="d-flex justify-center">
+<section class="d-flex justify-center flex-column text-center success">
     <h1> Congrats {{name}} !</h1>
     <h2> You have successfully Cashed out !</h2>
-
-    <section class="container">
-        {{#each products}}
-        <section class="card">
-            {{ product_name }}
-            {{ multiply_price price cart.quantity }}
-        </section>
-        {{/each}}
-        <section>
-           Your Subtotal: {{ find_sum products }}
-        </section>
-        <section>
-            Grand Total After Tax: {{ get_tax (find_sum products) }} 
-        </section>
-    </section>
-
+    <h2> Your Order ID is: {{ make_orderID }}</h2>
 </section>
