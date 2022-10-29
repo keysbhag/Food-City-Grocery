@@ -49,11 +49,10 @@ router.get("/category/:id", async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
 // sent user, product, cart to cart-page
-router.get("/cart", withAuth, async (req, res) => {
+router.get("/cart", /*withAuth,*/ async (req, res) => {
   try {
-    const cartData = await User.findByPk(req.session.user_id, {
+    const cartData = await User.findByPk(req.session.user_id || 1,/*change later*/ {
       include: [
         { 
           model: Product,
@@ -67,6 +66,30 @@ router.get("/cart", withAuth, async (req, res) => {
     const userCart = cartData.get({ plain: true });
     
     res.render("cart", {
+      ...userCart,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/checkout", /*withAuth,*/ async (req, res) => {
+  try {
+    const cartData = await User.findByPk(req.session.user_id || 1,/*change later*/ {
+      include: [
+        {
+          model: Product,
+          through: {
+            model: Cart,
+          },
+        },
+      ],
+    });
+
+    const userCart = cartData.get({ plain: true });
+
+    res.render("checkout", {
       ...userCart,
       logged_in: true,
     });
