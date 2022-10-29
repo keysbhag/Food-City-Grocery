@@ -50,9 +50,9 @@ router.get("/category/:id", async (req, res) => {
 });
 
 // sent user, product, cart to cart-page
-router.get("/cart", /*withAuth,*/ async (req, res) => {
+router.get("/cart", withAuth, async (req, res) => {
   try {
-    const cartData = await User.findByPk(req.session.user_id || 1,/*change later*/ {
+    const cartData = await User.findByPk(req.session.user_id, {
       include: [
         { 
           model: Product,
@@ -74,9 +74,9 @@ router.get("/cart", /*withAuth,*/ async (req, res) => {
   }
 });
 
-router.get("/checkout", /*withAuth,*/ async (req, res) => {
+router.get("/checkout", withAuth, async (req, res) => {
   try {
-    const cartData = await User.findByPk(req.session.user_id || 1,/*change later*/ {
+    const cartData = await User.findByPk(req.session.user_id, {
       include: [
         {
           model: Product,
