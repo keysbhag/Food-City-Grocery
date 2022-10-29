@@ -6,7 +6,7 @@ const newCartItem = async (event) => {
   if (event.target.hasAttribute("data-id")) { // implement later
     product_id = event.target.getAttribute("data-id"); // ^
   }
-  quantity = document.querySelector(`#${product_id}`).value.trim();// adjust later
+  quantity = document.querySelector(`#quantity`).value.trim();// adjust later
 
   if (product_id && quantity) {
     const response = await fetch(`/api/cart`, {
@@ -65,13 +65,13 @@ const delItemHandler = async (event) => {
 };
 
 document
-  .querySelector(".new-item-list")
+  .querySelector("#new-item-list")
   .addEventListener("click", newCartItem);
 
-document
-  .querySelector(".cart-list")
-  .addEventListener("click", delItemHandler);
+// document
+//   .querySelector(".cart-list")
+//   .addEventListener("click", delItemHandler);
 
-document
-  .querySelector(".edit-button")
-  .addEventListener("click", updateItemHandler);
+// document
+//   .querySelector(".edit-button")
+//   .addEventListener("click", updateItemHandler);
