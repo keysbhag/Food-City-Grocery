@@ -20,7 +20,7 @@ const newCartItem = async (event) => {
     if (response.ok) {
       document.location.replace(`/category/${req.params.id}`);// adjust later
     } else {
-      alert("Failed to create project");
+      alert("Failed to create item");
     }
   }
 };
@@ -66,7 +66,7 @@ const delItemHandler = async (event) => {
 
 document
   .querySelector(".new-item-list")
-  .addEventListener("submit", newCartItem);
+  .addEventListener("click", newCartItem);
 
 document
   .querySelector(".cart-list")
