@@ -8,7 +8,7 @@ module.exports = {
       return parseInt(amount).toLocaleString();
     },
     multiply_price: (price, quantity) => {
-      return price * quantity;
+      return price * quantity.toFixed(2);
     },
     find_sum: (products) => {
       let sum = 0;
@@ -16,9 +16,9 @@ module.exports = {
         let bag = products[i].price * products[i].cart.quantity;
         sum = sum + bag;
       }
-      return sum
+      return sum.toFixed(2);
     },
     get_tax: (subtotal) => {
-      return subtotal * 1.13;
+      return (subtotal * 1.13).toFixed(2);
     }
 }
