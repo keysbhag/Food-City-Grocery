@@ -12,3 +12,7 @@ img {
     height: auto;
   }
 
+.success > * {
+    margin-bottom: 30px;
+}
+

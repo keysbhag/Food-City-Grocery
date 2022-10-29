@@ -2,13 +2,13 @@
   <section class="col-8 space">
     {{#each products as |product|}}
       <div class="row border">
-        <div class="col-4">
+        <div class="col-4 border">
           <h4>{{product_name}}</h4>
         </div>
-        <div class="col-4">
+        <div class="col-4 border">
           <h4>Price: ${{price}}</h4>
         </div>
-        <div class="col-3">
+        <div class="col-3 border">
           <h4>Quantity: {{cart.quantity}}</h4>
         </div>
       </div>
@@ -20,7 +20,7 @@
   </section>
 
   <div class="col-3">
-    <h3 class="row">Enter your creadit card information:</h3>
+    <h3 class="row">Enter your credit card information:</h3>
     <form id="checkout-form">
       <div class="row mb-3">
         <label for="card-number">Card number:</label>
