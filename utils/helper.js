@@ -17,5 +17,8 @@ module.exports = {
         sum = sum + bag;
       }
       return sum
+    },
+    get_tax: (subtotal) => {
+      return subtotal * 1.13;
     }
 }
