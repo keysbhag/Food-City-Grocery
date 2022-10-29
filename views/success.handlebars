@@ -9,7 +9,12 @@
             {{ multiply_price price cart.quantity }}
         </section>
         {{/each}}
-        {{ find_sum products }}
+        <section>
+           Your Subtotal: {{ find_sum products }}
+        </section>
+        <section>
+            Grand Total After Tax: {{ get_tax (find_sum products) }} 
+        </section>
     </section>
 
 </section>

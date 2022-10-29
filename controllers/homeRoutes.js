@@ -39,7 +39,7 @@ router.get("/category/:id", async (req, res) => {
     });
 
     const productsByCat = prodData.get({ plain: true });
-
+    
     res.render("category", {
       ...productsByCat,
       logged_in: req.session.logged_in,
@@ -53,7 +53,6 @@ router.get("/category/:id", async (req, res) => {
 // sent user, product, cart to cart-page
 router.get("/cart", withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
     const cartData = await User.findByPk(req.session.user_id, {
       include: [
         { 

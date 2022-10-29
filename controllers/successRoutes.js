@@ -5,7 +5,7 @@ const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    const orderData = await User.findByPk(req.session.user_id || 2, {
+    const orderData = await User.findByPk(req.session.user_id || 1, {
       include: [
         {
           model: Product,
@@ -15,8 +15,6 @@ router.get("/", async (req, res) => {
         },
       ],
     });
-
-    // res.status(200).json(orderData);
     
     const order = orderData.get({ plain: true });
 
