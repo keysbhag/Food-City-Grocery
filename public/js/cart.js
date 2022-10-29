@@ -18,7 +18,7 @@ const newCartItem = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace(`/category/${req.params.id}`);// adjust later
+      document.location.replace(`/cart`);// adjust later
     } else {
       alert("Failed to create item");
     }
