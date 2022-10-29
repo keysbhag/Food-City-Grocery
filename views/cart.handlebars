@@ -1,21 +1,30 @@
- {{#each products as |product|}}
-    <div class="row">
-      <div class="col-md-3">
-        <h4>{{product_name}}</h4>    {{!-- adjust later --}}
-      </div>
-       <div class="col-md-3">
-        <h4>Price: ${{price}}</h4>
-        </div>
-        <div class="col-md-3">
-        <h4>Quantity: {{cart.quantity}}</h4>
-        </div>
-      <div class="col-md-3">
-        <button class="btn btn-sm btn-danger" data-id="{{cart.id}}">DELETE</button>
-      </div>
+{{#each products as |product|}}
+  <div class="row">
+    <div class="col-md-1 border">
+      <img src="./images/{{filename}}" height="50" width="50" />
     </div>
+    <div class="col-md-4 border">
+      <h4>{{product_name}}</h4>
+      {{! adjust later }}
+    </div>
+    <div class="col-md-3 border">
+      <h4>Price: ${{price}}</h4>
+    </div>
+    <div class="col-md-3 border">
+      <h4>Quantity: {{cart.quantity}}</h4>
+    </div>
+    <div class="col-md-1 border">
+      <button
+        class="btn btn-sm btn-danger"
+        data-id="{{cart.id}}"
+      >DELETE</button>
+    </div>
+  </div>
 {{/each}}
 <div class="row">
-    <h2> Your Subtotal: ${{ find_sum products }} </h2>
-    <h2> Grand Total After Tax: ${{ get_tax (find_sum products) }} </h2>
-    <button type="button" class="btn btn-outline-primary"><a href="/checkout">Checkout</a></button>
+  <h2> Your Subtotal: ${{find_sum products}} </h2>
+  <h2> Grand Total After Tax: ${{get_tax (find_sum products)}} </h2>
+  <button type="button" class="btn btn-outline-primary"><a
+      href="/checkout"
+    >Checkout</a></button>
 </div>

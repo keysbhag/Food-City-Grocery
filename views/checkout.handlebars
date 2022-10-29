@@ -1,7 +1,10 @@
 <section class="row">
   <section class="col-8 space">
     {{#each products as |product|}}
-      <div class="row border">
+      <div class="row">
+        <div class="col-1 border">
+          <img src="./images/{{filename}}" height="50" width="50">
+        </div>
         <div class="col-4 border">
           <h4>{{product_name}}</h4>
         </div>
@@ -14,8 +17,10 @@
       </div>
     {{/each}}
     <div class="row">
-      <h2 class="border"> Your Subtotal: ${{find_sum products}} </h2>
-      <h2 class="border"> Grand Total After Tax: ${{get_tax (find_sum products)}} </h2>
+      <h2 class=""> Your Subtotal: ${{find_sum products}} </h2>
+      <h2 class="">
+        Grand Total After Tax: ${{get_tax (find_sum products)}}
+      </h2>
     </div>
   </section>
 
