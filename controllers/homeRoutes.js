@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { User, Category, Product, Cart } = require("../models");
 const withAuth = require("../utils/auth");
 
+//send category, product to homepage.
 router.get("/", async (req, res) => {
   try {
     const categoryData = await Category.findAll({
@@ -25,6 +26,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+//send product to specific category-page
 router.get("/category/:id", async (req, res) => {
   try {
     const prodData = await Category.findByPk(req.params.id, {
@@ -48,6 +50,7 @@ router.get("/category/:id", async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
+// sent user, product, cart to cart-page
 router.get("/cart", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
@@ -73,6 +76,7 @@ router.get("/cart", withAuth, async (req, res) => {
   }
 });
 
+//send user, product, cart to profile page
 router.get('/profile', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
