@@ -28,10 +28,94 @@
     "filename": "04-product-choCake.jpg"
   },
   {
-    "product_name": "big beef",
-    "price": 9.09,
+    "product_name": "Ground Beef",
+    "price": 7.09,
     "stock": 57,
     "category_id": 1,
-    "filename": "01-product-beef.jpg"
+    "filename": "06-product-groundbeef.jpg"
+  },
+  {
+    "product_name": "Chicken Drumstick",
+    "price":9.89,
+    "stock": 117,
+    "category_id": 1,
+    "filename": "05-product-chickenDrumstick.jpg"
+  },
+  {
+    "product_name": "Chicken Leg",
+    "price":1.89,
+    "stock": 27,
+    "category_id": 1,
+    "filename": "07-product-chickenleg.jpg"
+  },
+  {
+    "product_name": "Australian Lamb",
+    "price":17.89,
+    "stock": 17,
+    "category_id": 1,
+    "filename": "08-product-lamb.jpg"
+  },
+  {
+    "product_name": "Limes",
+    "price": 0.39,
+    "stock": 199,
+    "category_id": 2,
+    "filename": "09-product-lime.jpg"
+  },
+  {
+    "product_name": "Lemon",
+    "price": 0.99,
+    "stock": 199,
+    "category_id": 2,
+    "filename": "10-product-lemon.jpg"
+  },
+  {
+    "product_name": "Ginger",
+    "price": 1.59,
+    "stock": 121,
+    "category_id": 2,
+    "filename": "12-product-ginger.jpg"
+  },
+  {
+    "product_name": "Lettuce",
+    "price": 3.99,
+    "stock": 199,
+    "category_id": 2,
+    "filename": "11-product-lettuce.jpg"
+  },
+  {
+    "product_name": "Egg",
+    "price": 4.39,
+    "stock": 110,
+    "category_id": 3,
+    "filename": "13-product-egg.jpg"
+  },
+  {
+    "product_name": "Butter",
+    "price": 7.19,
+    "stock": 60,
+    "category_id": 3,
+    "filename": "14-product-butter.jpg"
+  },
+  {
+    "product_name": "Whole Wheat Bread",
+    "price": 3.99,
+    "stock": 25,
+    "category_id": 4,
+    "filename": "15-product-wheatbread.jpg"
+  },
+  {
+    "product_name": "Butter Croissant",
+    "price": 4.99,
+    "stock": 36,
+    "category_id": 4,
+    "filename": "16-product-croissant.jpg"
+  },
+  {
+    "product_name": "Banana Chocolate Chunk Muffins",
+    "price": 4.59,
+    "stock": 4,
+    "category_id": 4,
+    "filename": "17-product-muffins.jpg"
   }
 ]
