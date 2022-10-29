@@ -1,8 +1,13 @@
+<section class="container">
+  <section class="d-flex">
 {{#each categories as |category|}}
-<section class="card">
-  <a href="/category/{{id}}">
-    <header>{{name}}</header>
-    <img src="/images/{{product.[0].filename}}">
+<section class="card d-flex">
+  <a href="/category/{{id}}">    
+    <header class ="text-center">{{category_name}}</header>
+     <div class="card-body">
+    <img src="/images/{{products.[0].filename}}" height="300" width="250">
   </a>
 </section>
 {{/each}}
+</section>
+</section>

@@ -1,14 +1,16 @@
 <section class="container">
-  <h3 class="gallery-name">{{category_name}}</h3>
+  <h3 class="category-name">{{category_name}}</h3>
   <section class="d-flex">
     {{#each products as |product|}}
     <section class="card d-flex">
-        <header>{{product.product_name}}</header>
+        <header class ="text-center">{{product.product_name}}</header>
         <div class="card-body">
           <img src="/images/{{filename}}" height="300" width="300">
           <p>Stock: {{product.stock}}</p>
           <p>Price: {{product.price}}</p>
-          <button id="addcartbtn">Add to cart</button>
+          <label for="quantity">quantity:</label>
+          <input class="prodQuantity" type="number" id="quantity"/>
+          <button id="new-item-list">Add to cart</button>
         </div>
     </section>
     {{/each}}
