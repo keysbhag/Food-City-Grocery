@@ -9,9 +9,11 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Food city grocery</title>
   </head>
   <body>
+
 
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
@@ -82,27 +84,56 @@
     </nav>
 
     <Nav>
-       <!-- Conditionally render Cartlinks -->
-      <a href="#">Home</a>
-      {{#if cart}}
-      <a href="/views/category.handlebars">Add to Cart</a>
-      |
-        <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="Cart"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Add to cart
-              </a>
-       
-      {{else}}
-       <a href="/views/login.handlebars">Login</a>
-       {{/if}}
-       <a hfre="/cart">Cart</a>
-    </Nav>
+
+        
+      
+<div class="w3-container w3-teal">
+  <h1>Grocery City</h1>
+</div>
+
+<div class="w3-row-padding w3-margin-top">
+  <div class="w3-third">
+    <div class="w3-card">
+      <img src="./images/01-product-beef.jpg" style="width:100%">
+      <div class="w3-container">
+        <h5>Beef</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-third">
+    <div class="w3-card">
+      <img src="./images/02-product-banana.jpg" style="width:100%">
+      <div class="w3-container">
+        <h5>Bananas</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-third">
+    <div class="w3-card">
+      <img src="./images/03-product-milk.jpg" style="width:100%">
+      <div class="w3-container">
+        <h5>Milk</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="w3-row-padding w3-margin-top">
+  <div class="w3-third">
+    <div class="w3-card">
+      <img src="./images/04-product-choCake.jpg" style="width:100%">
+      <div class="w3-container">
+        <h5>ChoCake</h5>
+      </div>
+    </div>
+  </div>
+
+        
+        
+
+
 
 
 
