@@ -17,7 +17,7 @@ const checkoutSubmission = async (event) => {
     if (response.ok) {
       document.location.replace("/success"); //change the endpoint
     } else {
-      alert(response.statusText);
+      alert(`Invalid Entry of Credit Card Info!`);
     }
   }
 };
