@@ -1,29 +1,8 @@
-const newCartItem = async (product_id) => {
-  
-  const quantity = document.querySelector(`#quantity-${product_id}`).value.trim();// adjust later
-
-  if (product_id && quantity) {
-    const response = await fetch(`/api/cart`, {
-      method: "POST",
-      body: JSON.stringify({ product_id, quantity}),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    // if (response.ok) {
-    //   document.location.replace(`/cart`);// adjust later
-    // } else {
-    //   alert("Failed to create item");
-    // }
-  }
-};
-
 const updateItemHandler = async (event) => {
   if (event.target.hasAttribute("data-id")){
     const id = event.target.getAttribute("data-id");
     const product_id = event.target.getAttribute("data-descr");
-    const quantity = document.querySelector(`#${product_id}`).value.trim();
+    const quantity = document.querySelector('#c'+id).value;
 
     const response = await fetch(`/api/cart/${id}`, {
       method: "PUT",
@@ -57,13 +36,14 @@ const delItemHandler = async (event) => {
   }
 };
 
-// document
-//   .querySelector("#new-item-list")
-//   .addEventListener("click", newCartItem);
+[...document.querySelectorAll(".cart-list")].forEach((el) =>
+  el.addEventListener("click", delItemHandler)
+);
 
-document
-  .querySelector("#cart-list")
-  .addEventListener("click", delItemHandler);
+[...document.querySelectorAll(".edit-list")].forEach((el) =>
+  el.addEventListener("click", updateItemHandler)
+);
+
 
 // document
 //   .querySelector(".edit-button")

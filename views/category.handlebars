@@ -9,12 +9,12 @@
           <p>Stock: {{product.stock}}</p>
           <p>Price: {{product.price}}</p>
           <label for="quantity">quantity:</label>
-          <input class="prodQuantity" type="number" id="quantity-{{product.id}}"/>
-          <button onclick="newCartItem({{product.id}})" id="new-item-list">Add to cart</button>
+          <input class="prodQuantity" type="number" id="p{{product.id}}"/>
+          <button data-id="{{product.id}}" class="new-item-list">Add to cart</button>
         </div>
     </section>
     {{/each}}
   </section>
 </section>
 
-<script src="../js/cart.js"></script>
+<script src="../js/product.js"></script>
