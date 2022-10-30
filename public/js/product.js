@@ -22,18 +22,7 @@ const newCartItem = async (event) => {
     });
 
     if (response.ok) {
-      document.querySelector("#p" + product_id).value = " ";
-      let time = 3;
-      addAlert.innerText = "Added "+product_name+" to your cart!";
-      addAlert.style.backgroundColor = "lightgreen";
-      let startTimer = setInterval(function () {
-        time--;
-        if (time === 0) {
-          addAlert.innerText = " ";
-          addAlert.style.backgroundColor = "transparent";
-          clearInterval(startTimer);
-        }
-      }, 1000);
+      document.location.replace("/cart");
     } else {
       alert("Failed to create item");
     }

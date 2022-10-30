@@ -1,4 +1,3 @@
-
 main {
     margin-top: 60px;
 }
@@ -18,5 +17,10 @@ img {
 
 .edit{
     width: 40px;
+}
+
+.custom-nav {
+    background-color: greenyellow;
+    color: white;
 }
 
