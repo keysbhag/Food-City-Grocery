@@ -1,3 +1,4 @@
+<h2 id="alert"></h2>
 <section class="container">
   <h3 class="category-name text-center ">{{category_name}}</h3>
   <section class="d-flex">
@@ -7,10 +8,10 @@
         <div class="card-body">
           <img src="/images/{{filename}}" height="300" width="300">
           <p>Stock: {{product.stock}}</p>
-          <p>Price: {{product.price}}</p>
+          <p>Price: ${{product.price}}</p>
           <label for="quantity">quantity:</label>
           <input class="prodQuantity" type="number" id="p{{product.id}}"/>
-          <button data-id="{{product.id}}" class="new-item-list">Add to cart</button>
+          <button data-id="{{product.id}}" data-descr="{{product.product_name}}" data-val="{{product.stock}}" class="new-item-list">Add to cart</button>
         </div>
     </section>
     {{/each}}
