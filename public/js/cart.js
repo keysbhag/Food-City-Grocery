@@ -24,7 +24,6 @@ const updateItemHandler = async (event) => {
 const delItemHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
-
     const response = await fetch(`/api/cart/${id}`, {
       method: "DELETE",
     });
@@ -44,6 +43,7 @@ const delItemHandler = async (event) => {
 [...document.querySelectorAll(".edit-list")].forEach((el) =>
   el.addEventListener("click", updateItemHandler)
 );
+
 
 // document
 //   .querySelector(".edit-button")
