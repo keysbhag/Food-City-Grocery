@@ -29,3 +29,11 @@ img {
     color: white;
 }
 
+a{
+    text-decoration: none;
+}
+
+ul li{
+    margin: 10px;
+}
+
