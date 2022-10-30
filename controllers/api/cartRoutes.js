@@ -5,22 +5,32 @@ const withAuth = require("../../utils/auth");
 // POST new cart
 router.post("/", withAuth, async (req, res) => {
   try {
-    const newItem = await Cart.create({
-      user_id: req.session.user_id,
-      product_id: req.body.product_id,
-      quantity: req.body.quantity, 
-    });
-    const change = 
-      {
-        stock: req.body.newStock
-      };
-    const stockData = await Product.update(change, {
+    const check = await Cart.findOne({
       where: {
-        id: req.body.product_id,
+        user_id: req.session.user_id, 
+        product_id: req.body.product_id 
       },
     });
+    if (check) {
+      res.status(404).json(check);
+    } else {
+      const newItem = await Cart.create({
+        user_id: req.session.user_id,
+        product_id: req.body.product_id,
+        quantity: req.body.quantity, 
+      });
+      const change = 
+        {
+          stock: req.body.newStock
+        };
+      const stockData = await Product.update(change, {
+        where: {
+          id: req.body.product_id,
+        },
+      });
 
-    res.status(200).json(`${newItem} + ${stockData}`);
+      res.status(200).json(`${newItem} + ${stockData}`);
+    }
   } catch (err) {
     res.status(400).json(err);
   }

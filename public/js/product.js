@@ -20,9 +20,11 @@ const newCartItem = async (event) => {
         "Content-Type": "application/json",
       },
     });
-
+    console.log(response);
     if (response.ok) {
       document.location.replace("/cart");
+    } else if (response.status = 404) {
+      alert("item already added to cart!")
     } else {
       alert("Failed to create item");
     }
