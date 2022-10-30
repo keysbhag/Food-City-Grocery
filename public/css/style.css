@@ -37,3 +37,16 @@ ul li{
     margin: 10px;
 }
 
+.checkout > *{
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cust-btn{
+    color: black;
+}
+
+.cat-names{
+    color: green;
+}
