@@ -14,12 +14,15 @@
       <label for="{{cart.id}}">Quantity:</label>
       <input class="edit" type="text" id="c{{cart.id}}" name="quantity" value="{{cart.quantity}}" />
       {{!-- <h4>Quantity: {{cart.quantity}}</h4> --}}
-      <button type="button" class="btn btn-secondary edit-list" data-id="{{cart.id}}" data-descr="{{cart.product_id}}"> Edit </button>
+      <button type="button" class="btn btn-secondary edit-list" data-orig="{{cart.quantity}}" data-val="{{stock}}" data-id="{{cart.id}}" data-descr="{{cart.product_id}}"> Edit </button>
     </div>
     <div class="col-md-1 border">
       <button
         class="btn btn-sm btn-danger cart-list"
         data-id="{{cart.id}}"
+        data-descr="{{cart.product_id}}"
+        data-orig="{{cart.quantity}}"
+        data-val="{{stock}}"
       >DELETE</button>
     </div>
   </div>

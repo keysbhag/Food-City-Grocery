@@ -7,10 +7,20 @@ router.post("/", withAuth, async (req, res) => {
   try {
     const newItem = await Cart.create({
       user_id: req.session.user_id,
-      ...req.body,
+      product_id: req.body.product_id,
+      quantity: req.body.quantity, 
+    });
+    const change = 
+      {
+        stock: req.body.newStock
+      };
+    const stockData = await Product.update(change, {
+      where: {
+        id: req.body.product_id,
+      },
     });
 
-    res.status(200).json(newItem);
+    res.status(200).json(`${newItem} + ${stockData}`);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -22,7 +32,8 @@ router.put("/:id", withAuth, async (req, res) => {
     // updates entry
     const change = {
       user_id: req.session.user_id,
-      ...req.body,
+      product_id: req.body.product_id,
+      quantity: req.body.quantity,
     };
     //cart.update overwrite
     const cartData = await Cart.update(change, {
@@ -30,11 +41,19 @@ router.put("/:id", withAuth, async (req, res) => {
         id: req.params.id,
       },
     });
+    const stockChange = {
+      stock: req.body.newStock,
+    };
+    const stockData = await Product.update(stockChange, {
+      where: {
+        id: req.body.product_id,
+      },
+    });
     if (!cartData[0]) {
       res.status(404).json({ message: "No cart with this id!" });
       return;
     }
-    res.status(200).json(cartData);
+    res.status(200).json(`${cartData} + ${stockData}`);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -48,13 +67,21 @@ router.delete("/:id", withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
+    const change = {
+      stock: req.body.newStock,
+    };
+    const stockData = await Product.update(change, {
+      where: {
+        id: req.body.product_id,
+      },
+    });
 
     if (!itemData) {
       res.status(404).json({ message: "No cart item found with this id!" });
       return;
     }
 
-    res.status(200).json(itemData);
+    res.status(200).json(`${itemData} + ${stockData} `);
   } catch (err) {
     res.status(500).json(err);
   }
