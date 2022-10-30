@@ -12,7 +12,10 @@ const newCartItem = async (event) => {
   }
   quantity = document.querySelector("#p" + product_id).value.trim();
   const newStock = stock - quantity;
-  if (product_id && quantity) {
+
+  let check = newStock >= 0
+
+  if (product_id && quantity && check) {
     const response = await fetch(`/api/cart`, {
       method: "POST",
       body: JSON.stringify({ product_id, quantity, newStock }),
@@ -20,7 +23,7 @@ const newCartItem = async (event) => {
         "Content-Type": "application/json",
       },
     });
-    console.log(response);
+
     if (response.ok) {
       document.location.replace("/cart");
     } else if (response.status = 404) {
@@ -28,6 +31,9 @@ const newCartItem = async (event) => {
     } else {
       alert("Failed to create item");
     }
+  }
+  else {
+    alert(`Invalid request of stock to add to cart`);
   }
 };
 
