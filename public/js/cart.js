@@ -61,6 +61,7 @@ const delItemHandler = async (event) => {
   el.addEventListener("click", updateItemHandler)
 );
 
+
 // document
 //   .querySelector(".edit-button")
 //   .addEventListener("click", updateItemHandler);
