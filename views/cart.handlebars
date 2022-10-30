@@ -5,16 +5,27 @@
     </div>
     <div class="col-md-4 border">
       <h4>{{product_name}}</h4>
-      {{! adjust later }}
     </div>
     <div class="col-md-3 border">
       <h4>Price: ${{price}}</h4>
     </div>
     <div class="col-md-3 border">
       <label for="{{cart.id}}">Quantity:</label>
-      <input class="edit" type="text" id="c{{cart.id}}" name="quantity" value="{{cart.quantity}}" />
-      {{!-- <h4>Quantity: {{cart.quantity}}</h4> --}}
-      <button type="button" class="btn btn-secondary edit-list" data-orig="{{cart.quantity}}" data-val="{{stock}}" data-id="{{cart.id}}" data-descr="{{cart.product_id}}"> Edit </button>
+      <input
+        class="edit"
+        type="text"
+        id="c{{cart.id}}"
+        name="quantity"
+        value="{{cart.quantity}}"
+      />
+      <button
+        type="button"
+        class="btn btn-secondary edit-list"
+        data-orig="{{cart.quantity}}"
+        data-val="{{stock}}"
+        data-id="{{cart.id}}"
+        data-descr="{{cart.product_id}}"
+      > Edit </button>
     </div>
     <div class="col-md-1 border">
       <button
