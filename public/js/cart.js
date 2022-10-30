@@ -1,39 +1,20 @@
-const newCartItem = async (event) => {
-  event.preventDefault();
-  let product_id;
-  let quantity;
-
-  if (event.target.hasAttribute("data-id")) { // implement later
-    product_id = event.target.getAttribute("data-id"); // ^
-  }
-  quantity = document.querySelector(`#${product_id}`).value.trim();// adjust later
-
-  if (product_id && quantity) {
-    const response = await fetch(`/api/cart`, {
-      method: "POST",
-      body: JSON.stringify({ product_id, quantity}),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (response.ok) {
-      document.location.replace(`/category/${req.params.id}`);// adjust later
-    } else {
-      alert("Failed to create project");
-    }
-  }
-};
-
 const updateItemHandler = async (event) => {
   if (event.target.hasAttribute("data-id")){
     const id = event.target.getAttribute("data-id");
     const product_id = event.target.getAttribute("data-descr");
-    const quantity = document.querySelector(`#${product_id}`).value.trim();
+    const quantity = document.querySelector('#c'+id).value;
+    const stock = event.target.getAttribute("data-val");
+    const origQuan = event.target.getAttribute("data-orig");
+    let newStock = 0;
+    if (quantity > origQuan) {
+      newStock = parseInt(stock) - parseInt(quantity - origQuan);
+    } else {
+      newStock = parseInt(stock) + parseInt(origQuan - quantity);
+    }
 
     const response = await fetch(`/api/cart/${id}`, {
       method: "PUT",
-      body: JSON.stringify({ product_id, quantity }),
+      body: JSON.stringify({ product_id, quantity, newStock }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -51,9 +32,17 @@ const updateItemHandler = async (event) => {
 const delItemHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
+    const product_id = event.target.getAttribute("data-descr");
+    const stock = event.target.getAttribute("data-val");
+    const quantity = event.target.getAttribute("data-orig");
+    const newStock = parseInt(stock) + parseInt(quantity);
 
     const response = await fetch(`/api/cart/${id}`, {
       method: "DELETE",
+      body: JSON.stringify({ product_id, newStock }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
 
     if (response.ok) {
@@ -64,14 +53,15 @@ const delItemHandler = async (event) => {
   }
 };
 
-document
-  .querySelector(".new-item-list")
-  .addEventListener("submit", newCartItem);
+[...document.querySelectorAll(".cart-list")].forEach((el) =>
+  el.addEventListener("click", delItemHandler)
+);
 
-document
-  .querySelector(".cart-list")
-  .addEventListener("click", delItemHandler);
+[...document.querySelectorAll(".edit-list")].forEach((el) =>
+  el.addEventListener("click", updateItemHandler)
+);
 
-document
-  .querySelector(".edit-button")
-  .addEventListener("click", updateItemHandler);
+
+// document
+//   .querySelector(".edit-button")
+//   .addEventListener("click", updateItemHandler);

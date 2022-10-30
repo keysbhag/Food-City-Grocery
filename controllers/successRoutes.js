@@ -3,9 +3,9 @@ const { User, Category, Product, Cart } = require("../models");
 const withAuth = require("../utils/auth");
 
 
-router.get("/", async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   try {
-    const orderData = await User.findByPk(req.session.user_id || 1, {
+    const orderData = await User.findByPk(req.session.user_id, {
       include: [
         {
           model: Product,

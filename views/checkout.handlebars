@@ -1,28 +1,61 @@
-<div class="row">
-    <h1>Enter your creadit card information:</h1>
-    <form class="form add-creditCard-form">
-      <div class="form-group">
+<section class="row">
+  <section class="col-8 space">
+    {{#each products as |product|}}
+      <div class="row">
+        <div class="col-1 border">
+          <img src="./images/{{filename}}" height="50" width="50">
+        </div>
+        <div class="col-4 border">
+          <h4>{{product_name}}</h4>
+        </div>
+        <div class="col-4 border">
+          <h4>Price: ${{price}}</h4>
+        </div>
+        <div class="col-3 border">
+          <h4>Quantity: {{cart.quantity}}</h4>
+        </div>
+      </div>
+    {{/each}}
+    <div class="row">
+      <h2 class=""> Your Subtotal: ${{find_sum products}} </h2>
+      <h2 class="">
+        Grand Total After Tax: ${{get_tax (find_sum products)}}
+      </h2>
+    </div>
+  </section>
+
+  <div class="col-3">
+    <h3 class="row">Enter your credit card information:</h3>
+    <form id="checkout-form">
+      <div class="row mb-3">
         <label for="card-number">Card number:</label>
-        <input class="form-input" type="number" id="creditcard-num"/>
+        <input class="form-input" type="text" id="creditcard-num" />
       </div>
-      <div class="form-group">
+      <div class="row mb-3">
         <label for="holder-name">Name</label>
-        <input class="form-input" type="text" id="username"/>
+        <input class="form-input" type="text" id="name" />
       </div>
-      <div class="form-group">
+      <div class="row mb-3">
         <label for="expire-month">Expired Month :</label>
-        <input class="form-input" type="number" id="month"/>
+        <input class="form-input" type="number" id="month" />
       </div>
-      <div class="form-group">
+      <div class="row mb-3">
         <label for="expire-year">Expired Year:</label>
-       <input class="form-input" type="number" id="year"/>
+        <input class="form-input" type="number" id="year" />
       </div>
-      <div class="form-group">
+      <div class="row mb-3">
         <label for="address">Address:</label>
-       <input class="form-input" type="text" id="address"/>
+        <input class="form-input" type="address" id="address" />
       </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary" id="processpayment">Process Payment</button>
+      <div class="row mb-3">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          id="processpayment"
+        >Process Payment</button>
       </div>
     </form>
-</div>
+  </div>
+</section>
+
+<script src="./js/checkout.js"></script>

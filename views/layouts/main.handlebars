@@ -10,6 +10,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/css/style.css" />
     <title>Food city grocery</title>
   </head>
   <body>
@@ -84,9 +85,7 @@
     </nav>
 
     <Nav>
-
-        
-      
+     
 <div class="w3-container w3-teal">
   <h1>Grocery City</h1>
 </div>
@@ -131,13 +130,30 @@
   </div>
 
         
-        
+    /*  <!-- Conditionally render Cartlinks -->
+      <a href="#">Home</a>
+      {{#if cart}}
+        <a href="/views/category.handlebars">Add to Cart</a>
+        |
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="Cart"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Add to cart
+        </a>
+
+      {{else}}
+        <a href="/views/login.handlebars">Login</a>
+      {{/if}}
+      <a href="/cart">Cart</a>
+    </Nav> */
 
 
-
-
-
-    <main class="container container-fluid mt-5">
+    <main class="container">
       <!-- Render the sub layout -->
       {{{body}}}
     </main>
