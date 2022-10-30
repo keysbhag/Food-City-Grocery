@@ -1,12 +1,6 @@
-const newCartItem = async (event) => {
-  event.preventDefault();
-  let product_id;
-  let quantity;
-
-  if (event.target.hasAttribute("data-id")) { // implement later
-    product_id = event.target.getAttribute("data-id"); // ^
-  }
-  quantity = document.querySelector(`#quantity`).value.trim();// adjust later
+const newCartItem = async (product_id) => {
+  
+  const quantity = document.querySelector(`#quantity-${product_id}`).value.trim();// adjust later
 
   if (product_id && quantity) {
     const response = await fetch(`/api/cart`, {
@@ -17,11 +11,11 @@ const newCartItem = async (event) => {
       },
     });
 
-    if (response.ok) {
-      document.location.replace(`/cart`);// adjust later
-    } else {
-      alert("Failed to create item");
-    }
+    // if (response.ok) {
+    //   document.location.replace(`/cart`);// adjust later
+    // } else {
+    //   alert("Failed to create item");
+    // }
   }
 };
 
@@ -51,7 +45,6 @@ const updateItemHandler = async (event) => {
 const delItemHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
-
     const response = await fetch(`/api/cart/${id}`, {
       method: "DELETE",
     });
@@ -64,13 +57,13 @@ const delItemHandler = async (event) => {
   }
 };
 
-document
-  .querySelector("#new-item-list")
-  .addEventListener("click", newCartItem);
-
 // document
-//   .querySelector(".cart-list")
-//   .addEventListener("click", delItemHandler);
+//   .querySelector("#new-item-list")
+//   .addEventListener("click", newCartItem);
+
+document
+  .querySelector("#cart-list")
+  .addEventListener("click", delItemHandler);
 
 // document
 //   .querySelector(".edit-button")
