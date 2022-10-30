@@ -1,18 +1,19 @@
+<a href="/" class="btn btn-success mb-2" role="button"> Continue Shopping </a>
 {{#each products}}
-  <div class="row">
-    <div class="col-md-1 border">
+  <div class="row checkout">
+    <div class="col-md-1 d-flex border">
       <img src="./images/{{filename}}" height="50" width="50" />
     </div>
-    <div class="col-md-4 border">
+    <div class="col-md-4 d-flex border">
       <h4>{{product_name}}</h4>
     </div>
-    <div class="col-md-3 border">
+    <div class="col-md-3 d-flex border">
       <h4>Price: ${{price}}</h4>
     </div>
-    <div class="col-md-3 border">
-      <label for="{{cart.id}}">Quantity:</label>
+    <div class="col-md-3 d-flex gap border">
+      <label class="m-1" for="{{cart.id}}">Quantity:</label>
       <input
-        class="edit"
+        class="edit m-1"
         type="text"
         id="c{{cart.id}}"
         name="quantity"
@@ -20,14 +21,14 @@
       />
       <button
         type="button"
-        class="btn btn-secondary edit-list"
+        class="btn btn-secondary m-1 edit-list"
         data-orig="{{cart.quantity}}"
         data-val="{{stock}}"
         data-id="{{cart.id}}"
         data-descr="{{cart.product_id}}"
       > Edit </button>
     </div>
-    <div class="col-md-1 border">
+    <div class="col-md-1 d-flex border">
       <button
         class="btn btn-sm btn-danger cart-list"
         data-id="{{cart.id}}"
@@ -42,9 +43,7 @@
 <div class="row">
   <h2> Your Subtotal: ${{find_sum products}} </h2>
   <h2> Grand Total After Tax: ${{get_tax (find_sum products)}} </h2>
-  <button type="button" class="btn btn-outline-primary"><a
-      href="/checkout"
-    >Checkout</a></button>
+  <a type="button" href="/checkout" class="btn btn-outline-success" role="button">Checkout</a>
 </div>
 
 <script src="../js/cart.js"></script>
