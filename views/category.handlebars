@@ -2,15 +2,15 @@
   <h3 class="category-name text-center ">{{category_name}}</h3>
   <section class="d-flex">
     {{#each products as |product|}}
-    <section class="card d-flex">
+    <section class="card d-flex mx-1">
         <header class ="text-center">{{product.product_name}}</header>
         <div class="card-body">
           <img src="/images/{{filename}}" height="300" width="300">
           <p>Stock: {{product.stock}}</p>
           <p>Price: {{product.price}}</p>
           <label for="quantity">quantity:</label>
-          <input class="prodQuantity" type="number" id="quantity"/>
-          <button data-id="{{product.id}}" id="new-item-list">Add to cart</button>
+          <input class="prodQuantity" type="number" id="quantity-{{product.id}}"/>
+          <button onclick="newCartItem({{product.id}})" id="new-item-list">Add to cart</button>
         </div>
     </section>
     {{/each}}

@@ -24,6 +24,7 @@ router.put("/:id", withAuth, async (req, res) => {
       user_id: req.session.user_id,
       ...req.body,
     };
+    //cart.update overwrite
     const cartData = await Cart.update(change, {
       where: {
         id: req.params.id,
