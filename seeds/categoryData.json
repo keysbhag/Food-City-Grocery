@@ -1,15 +1,19 @@
 [
     {
-      "category_name": "Meat"
+      "category_name": "Meat",
+      "filename": "meatProj.jpg"
     },
     {
-      "category_name": "Produce"
+      "category_name": "Produce",
+      "filename": "produceProj.jpeg"
     },
     {
-      "category_name": "Dairy"
+      "category_name": "Dairy",
+      "filename": "dairyProj.jpeg"
     },
     {
-      "category_name": "Bakery"
+      "category_name": "Bakery",
+      "filename": "bakeryProj.jpeg"
     }
 
 ]

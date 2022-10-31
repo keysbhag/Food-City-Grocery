@@ -1,5 +1,11 @@
 *{
     box-sizing: border-box;
+    font-family: 'Oswald', sans-serif, Arial, Helvetica;
+}
+
+.logo{
+    font-family: 'Playfair Display SC', serif, Arial, Helvetica, sans-serif;
+    font-size: 30px;
 }
 
 
@@ -31,6 +37,11 @@ img {
 
 a{
     text-decoration: none;
+    font-size: 20px;
+}
+
+p, .quan{
+    font-size: 20px;
 }
 
 ul li{
@@ -91,5 +102,7 @@ ul li{
 }
 
 .prodQuantity{
-    width: 60px;
+    display: flex;
+    width: 100%;
+    margin-left: 10px;
 }
