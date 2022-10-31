@@ -89,3 +89,7 @@ ul li{
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.prodQuantity{
+    width: 60px;
+}
