@@ -49,11 +49,20 @@
         <input class="form-input" type="address" id="address" />
       </div>
       <div class="row mb-3">
+      {{#if products}}
         <button
           type="submit"
           class="btn btn-success"
           id="processpayment"
         >Process Payment</button>
+      {{else}}
+        <button
+          type="submit"
+          class="btn btn-success"
+          id="processpayment" 
+          disabled
+        >Process Payment</button>
+      {{/if}}
       </div>
     </form>
   </div>

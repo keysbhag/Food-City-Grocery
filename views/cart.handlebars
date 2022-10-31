@@ -43,7 +43,11 @@
 <div class="row">
   <p class="subtotal"> Your Subtotal: ${{find_sum products}} </p>
   <p class="total"> Grand Total After Tax: ${{get_tax (find_sum products)}} </p>
+  {{#if products}}
   <a type="button" href="/checkout" class="btn btn-outline-success" role="button">Checkout</a>
+  {{else}}
+  <a type="button" href="#" class="btn btn-outline-success" role="button" aria-disabled="true">Checkout</a>
+  {{/if}}
 </div>
 
 <script src="../js/cart.js"></script>
