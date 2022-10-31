@@ -5,7 +5,7 @@
   <section class="d-flex">
     {{#each products as |product|}}
     {{#if product.stock}}
-    <section class="card d-flex mx-2 border-light">
+    <section class="card d-flex mx-2 border p-2">
         <img src="/images/{{filename}}" height="300" width="300">
         <div class="card-body">
           <h5 class ="text-center fs-6 mb-5">{{product.product_name}}</h5>
@@ -17,7 +17,7 @@
         </div>
     </section>
     {{else}}
-    <section class="card d-flex mx-2 border-light sold-out">
+    <section class="card d-flex mx-2 border sold-out p-2">
       <img class="sold" src="/images/{{filename}}" height="300" width="300">
       <div class="centered sold-text">Sold Out</div>
       <div class="card-body">
