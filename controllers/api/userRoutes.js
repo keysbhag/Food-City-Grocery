@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// route to create new users
 router.post('/', async (req, res) => {
   try {
-    console.log('Hello!')
     const userData = await User.create(req.body);
 
     req.session.save(() => {
@@ -17,9 +17,9 @@ router.post('/', async (req, res) => {
   }
 });
 
+// route to validate if users are already signed up then sign them in
 router.post('/login', async (req, res) => {
   try {
-    console.log('wassup!')
     const userData = await User.findOne({ where: { email: req.body.email } });
 
     if (!userData) {
@@ -50,8 +50,8 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// route to log out the user and destroy their session information
 router.post('/logout', (req, res) => {
-  console.log('wass poppin !');
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();

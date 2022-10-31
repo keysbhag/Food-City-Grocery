@@ -1,3 +1,5 @@
+// Allows users to edit the quantities inside their cart
+// it will also check whether they took more quantity or less and adjust stock levels from there
 const updateItemHandler = async (event) => {
   if (event.target.hasAttribute("data-id")){
     const id = event.target.getAttribute("data-id");
@@ -29,6 +31,7 @@ const updateItemHandler = async (event) => {
   }
 }
 
+// Allows users to delete all quantities of an item in their cart and readjust stock levels 
 const delItemHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
@@ -53,6 +56,7 @@ const delItemHandler = async (event) => {
   }
 };
 
+// adds event listeners for each item
 [...document.querySelectorAll(".cart-list")].forEach((el) =>
   el.addEventListener("click", delItemHandler)
 );
@@ -61,7 +65,3 @@ const delItemHandler = async (event) => {
   el.addEventListener("click", updateItemHandler)
 );
 
-
-// document
-//   .querySelector(".edit-button")
-//   .addEventListener("click", updateItemHandler);
