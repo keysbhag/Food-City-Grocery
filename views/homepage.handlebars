@@ -1,7 +1,8 @@
+<h2 class="text-center">Shop By Category!</h2>
 <section class="container">
-  <section class="d-flex">
+  <section class="row">
 {{#each categories as |category|}}
-<section class="card d-flex mx-1">
+<section class="card d-flex mx-auto p-3 col-10 col-lg-3 col-md-6 col-sm-10">
   <a href="/category/{{id}}">    
     <header class ="text-center cat-names">{{category_name}}</header>
      <div class="card-body">
@@ -9,4 +10,5 @@
   </a>
 </section>
 {{/each}}
-
+  </section>
+</section>
