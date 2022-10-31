@@ -5,27 +5,31 @@
   <section class="row">
     {{#each products as |product|}}
     {{#if product.stock}}
-    <section class="card border m-auto mt-1 p-2 col-10 col-sm-10 col-md-5 col-lg-3 col-xl-2">
+    <section class="card border shadow m-auto mt-1 p-2 col-10 col-sm-10 col-md-5 col-lg-3 col-xl-2">
         <img src="/images/{{filename}}" height="300" width="300">
-        <div class="card-body">
-          <h5 class ="text-center fs-6 mb-5">{{product.product_name}}</h5>
-          <p class="mb-0">Stock: {{product.stock}}</p>
-          <p class="mb-3">Price: ${{product.price}}</p>
-          <label for="quantity">quantity:</label>
-          <input class="prodQuantity" min="1" type="number" id="p{{product.id}}"/>
+        <div class="card-body d-flex justify-content-center flex-column">
+          <p class ="text-center mb-5">{{product.product_name}}</p>
+          <p class="text-center mb-0">Stock: {{product.stock}}</p>
+          <p class="text-center mb-3">Price: ${{product.price}}</p>
+          <div class="d-flex mb-1">
+            <label class="quan text-center" for="quantity">Quantity:</label>
+            <input class="prodQuantity" min="1" type="number" id="p{{product.id}}"/>
+          </div>
           <button data-id="{{product.id}}" data-descr="{{product.product_name}}" data-val="{{product.stock}}" class="new-item-list btn btn-outline-success mt-1">Add to cart</button>
         </div>
     </section>
     {{else}}
-    <section class="card border m-auto mt-1 sold-out p-2 col-10 col-sm-10 col-md-5 col-lg-3 col-xl-2">
+    <section class="card border shadow m-auto mt-1 sold-out p-2 col-10 col-sm-10 col-md-5 col-lg-3 col-xl-2">
       <img class="sold" src="/images/{{filename}}" height="300" width="300">
       <div class="centered sold-text">Sold Out</div>
-      <div class="card-body">
-        <h5 class ="text-center fs-6 mb-5">{{product.product_name}}</h5>
-        <p class="mb-0">Stock: {{product.stock}}</p>
-        <p class="mb-3">Price: ${{product.price}}</p>
-        <label for="quantity">quantity:</label>
-        <input class="prodQuantity" min="1" type="number" id="p{{product.id}}" disabled/>
+      <div class="card-body d-flex justify-content-center flex-column">
+        <p class ="text-center mb-5">{{product.product_name}}</p>
+        <p class="text-center mb-0">Stock: {{product.stock}}</p>
+        <p class="text-center mb-3">Price: ${{product.price}}</p>
+          <div class="d-flex mb-1">
+            <label class="quan text-center" for="quantity">Quantity:</label>
+            <input class="prodQuantity" min="1" type="number" id="p{{product.id}}" disabled/>
+          </div>
         <button data-id="{{product.id}}" data-descr="{{product.product_name}}" data-val="{{product.stock}}" class="new-item-list btn btn-outline-success mt-1" disabled>Add to cart</button>
       </div>
     </section>
