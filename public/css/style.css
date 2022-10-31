@@ -25,7 +25,7 @@ img {
 }
 
 .custom-nav {
-    background-color: greenyellow;
+    background-color: #36CA00;
     color: white;
 }
 
@@ -45,10 +45,11 @@ ul li{
 
 .cust-btn{
     color: black;
+    background-color: #00AD30 ;
 }
 
 .cat-names{
-    color: green;
+    color: #62D65B;
 }
 
 .checkout > *{
@@ -58,12 +59,12 @@ ul li{
 .total{
     font-size: 30px;
     font-weight: bold;
-    color: green;
+    color: #62D65B;
 }
 
 .subtotal{
     font-size: 25px;
-    color: green;
+    color: #62D65B;
 }
 
 .sold-out{
