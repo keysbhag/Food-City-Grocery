@@ -14,18 +14,25 @@ const updateItemHandler = async (event) => {
       newStock = parseInt(stock) + parseInt(origQuan - quantity);
     }
 
-    const response = await fetch(`/api/cart/${id}`, {
-      method: "PUT",
-      body: JSON.stringify({ product_id, quantity, newStock }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    let check = newStock >= 0
+    let check2 = quantity > 0;
 
-    if (response.ok) {
-      document.location.replace("/cart"); // figure out later
-    } else {
-      alert("Failed to update item");
+    if(check && check2){
+      const response = await fetch(`/api/cart/${id}`, {
+        method: "PUT",
+        body: JSON.stringify({ product_id, quantity, newStock }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        document.location.replace("/cart");
+      } else {
+        alert("Failed to update item");
+      }
+    } else{
+      alert(`You cannot update your cart to that amount!`)
     }
 
   }
