@@ -8,7 +8,7 @@ const checkoutSubmission = async (event) => {
   const address = document.querySelector('#address').value.trim();
   const name = document.querySelector('#name').value.trim();
 
-  let validLen = creditCard.toString().length > 13 && creditCard.toString().length < 16;
+  let validLen = creditCard.toString().length > 12 && creditCard.toString().length < 17;
 
   if(!validLen){
     alert(` Card number is not long enough`)
