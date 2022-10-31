@@ -1,6 +1,6 @@
 <a href="/" class="btn btn-success mb-2" role="button"> Continue Shopping </a>
 {{#each products}}
-  <div class="row checkout">
+  <div class="row cart">
     <div class="col-md-1 d-flex border">
       <img src="./images/{{filename}}" height="50" width="50" />
     </div>
@@ -41,8 +41,8 @@
 {{/each}}
 
 <div class="row">
-  <h2> Your Subtotal: ${{find_sum products}} </h2>
-  <h2> Grand Total After Tax: ${{get_tax (find_sum products)}} </h2>
+  <p class="subtotal"> Your Subtotal: ${{find_sum products}} </p>
+  <p class="total"> Grand Total After Tax: ${{get_tax (find_sum products)}} </p>
   <a type="button" href="/checkout" class="btn btn-outline-success" role="button">Checkout</a>
 </div>
 

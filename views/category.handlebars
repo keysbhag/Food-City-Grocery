@@ -1,6 +1,6 @@
 <h2 id="alert"></h2>
 <section class="container">
-  <a class="text-decoration-none badge text-bg-primary fs-6" href="/">Go back</a>
+  <a class="text-decoration-none badge text-bg-success fs-6" href="/">Go back</a>
   <h3 class="category-name text-center fw-bold fs-1">{{category_name}}</h3>
   <section class="d-flex">
     {{#each products as |product|}}
@@ -12,7 +12,7 @@
           <p class="mb-3">Price: ${{product.price}}</p>
           <label for="quantity">quantity:</label>
           <input class="prodQuantity w-25" min="1" type="number" id="p{{product.id}}"/>
-          <button data-id="{{product.id}}" data-descr="{{product.product_name}}" data-val="{{product.stock}}" class="new-item-list btn btn-danger mt-1">Add to cart</button>
+          <button data-id="{{product.id}}" data-descr="{{product.product_name}}" data-val="{{product.stock}}" class="new-item-list btn btn-outline-success mt-1">Add to cart</button>
         </div>
     </section>
     {{/each}}

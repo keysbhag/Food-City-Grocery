@@ -37,7 +37,7 @@ ul li{
     margin: 10px;
 }
 
-.checkout > *{
+.cart > *{
     padding: 10px;
     justify-content: center;
     align-items: center;
@@ -48,5 +48,20 @@ ul li{
 }
 
 .cat-names{
+    color: green;
+}
+
+.checkout > *{
+    padding: 10px;
+}
+
+.total{
+    font-size: 30px;
+    font-weight: bold;
+    color: green;
+}
+
+.subtotal{
+    font-size: 25px;
     color: green;
 }
