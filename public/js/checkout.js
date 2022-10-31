@@ -1,9 +1,10 @@
+// handles the checkout form to make sure there is valid entry of credit card info and address 
 const checkoutSubmission = async (event) => {
   event.preventDefault();
 
-  const creditCard = document.querySelector("#creditcard-num").value.trim(); // may have to parseint
-  const month = document.querySelector("#month").value.trim(); // may have to parseint
-  const year = document.querySelector("#year").value.trim(); // may have to parseint
+  const creditCard = document.querySelector("#creditcard-num").value.trim();
+  const month = document.querySelector("#month").value.trim(); 
+  const year = document.querySelector("#year").value.trim();
   const address = document.querySelector('#address').value.trim();
   const name = document.querySelector('#name').value.trim();
 
@@ -15,7 +16,7 @@ const checkoutSubmission = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/success"); //change the endpoint
+      document.location.replace("/success");
     } else {
       alert(`Invalid Entry of Credit Card Info!`);
     }

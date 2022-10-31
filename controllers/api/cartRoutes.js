@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { User, Category, Product, Cart } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-// POST new cart
+// POST new item cart and update stock
 router.post("/", withAuth, async (req, res) => {
   try {
     const check = await Cart.findOne({
@@ -36,7 +36,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-// PUT (update) existing cart
+// PUT (update) existing cart and update stock
 router.put("/:id", withAuth, async (req, res) => {
   try {
     // updates entry
@@ -54,6 +54,7 @@ router.put("/:id", withAuth, async (req, res) => {
     const stockChange = {
       stock: req.body.newStock,
     };
+    // stock update overwrite
     const stockData = await Product.update(stockChange, {
       where: {
         id: req.body.product_id,
@@ -69,14 +70,17 @@ router.put("/:id", withAuth, async (req, res) => {
   }
 });
 
+// DELETE Route to delete items from the cart
 router.delete("/:id", withAuth, async (req, res) => {
   try {
+    // destroys cart item depending the user and what the cart id is
     const itemData = await Cart.destroy({
       where: {
-        id: req.params.id, // gonna be the id of the cart item, in 'data-id:'
+        id: req.params.id,
         user_id: req.session.user_id,
       },
     });
+    // changes stock of product
     const change = {
       stock: req.body.newStock,
     };
@@ -85,7 +89,7 @@ router.delete("/:id", withAuth, async (req, res) => {
         id: req.body.product_id,
       },
     });
-
+    
     if (!itemData) {
       res.status(404).json({ message: "No cart item found with this id!" });
       return;

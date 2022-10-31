@@ -26,7 +26,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-//send product to specific category-page
+//send users to specific category-page with category specific products
 router.get("/category/:id", async (req, res) => {
   try {
     const prodData = await Category.findByPk(req.params.id, {
@@ -49,7 +49,7 @@ router.get("/category/:id", async (req, res) => {
   }
 });
 
-// sent user, product, cart to cart-page
+// sent users, product, cart to cart-page which will display their added cart items
 router.get("/cart", withAuth, async (req, res) => {
   try {
     const cartData = await User.findByPk(req.session.user_id, {
@@ -74,6 +74,7 @@ router.get("/cart", withAuth, async (req, res) => {
   }
 });
 
+// sends users to a checkout form page with listed items and a form to add credit card info, a name and an address
 router.get("/checkout", withAuth, async (req, res) => {
   try {
     const cartData = await User.findByPk(req.session.user_id, {
@@ -98,7 +99,7 @@ router.get("/checkout", withAuth, async (req, res) => {
   }
 });
 
-//send user, product, cart to profile page
+//send user, product, cart to profile page where they can see their profile
 router.get('/profile', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {

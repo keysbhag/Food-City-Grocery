@@ -3,6 +3,7 @@ const { User, Category, Product, Cart } = require("../models");
 const withAuth = require("../utils/auth");
 
 
+// shows a success page with order confirmation
 router.get("/", withAuth, async (req, res) => {
   try {
     const orderData = await User.findByPk(req.session.user_id, {

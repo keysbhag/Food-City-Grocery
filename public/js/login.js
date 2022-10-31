@@ -1,3 +1,4 @@
+// Handles login information and sends it to the backend to be validated
 const loginFormHandler = async (event) => {
     event.preventDefault();
   
@@ -14,11 +15,12 @@ const loginFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/');
       } else {
-        alert(response.statusText);
+        alert(`Invalid Login Info!`);
       }
     }
   };
   
+// Handles sign up info and hands it to the backend to be validated
   const signupFormHandler = async (event) => {
     event.preventDefault();
   
@@ -36,7 +38,7 @@ const loginFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/');
       } else {
-        alert(response.statusText);
+        alert(`Invalid Sign Up Info!`);
       }
     }
   };
