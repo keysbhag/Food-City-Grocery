@@ -65,3 +65,26 @@ ul li{
     font-size: 25px;
     color: green;
 }
+
+.sold-out{
+    color:lightgray;
+    position: relative;
+}
+
+.sold-text{
+    color: rgb(80, 79, 79);
+    background-color: rgb(173, 173, 173);
+    padding: 20px;
+    opacity: .9;
+}
+
+.sold{
+    opacity: 0.5;
+}
+
+.centered {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
