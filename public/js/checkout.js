@@ -11,7 +11,7 @@ const checkoutSubmission = async (event) => {
   let validLen = creditCard.toString().length > 12 && creditCard.toString().length < 17;
 
   if(!validLen){
-    alert(` Card number is not long enough`)
+    alert(` Card length is invalid`)
   }
 
   if (creditCard && month && year && address && name && validLen) {
