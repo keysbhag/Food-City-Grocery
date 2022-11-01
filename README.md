@@ -48,7 +48,7 @@ Grocery stores are a destination for consumers who need to purchase food and hou
 - Bakery
 ![alt text](./public/images/Bakery.png)
 - Login/Sign-up
-![alt text](./public/images/Login%3ASignup.png)
+![alt text](./public/images/LoginSignup.png)
 - Payment Process
 ![alt text](./public/images/Payment%20Process.png)
 
