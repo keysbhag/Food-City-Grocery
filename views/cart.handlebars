@@ -14,7 +14,8 @@
       <label class="m-1" for="{{cart.id}}">Quantity:</label>
       <input
         class="edit m-1"
-        type="text"
+        type="number"
+        min="1"
         id="c{{cart.id}}"
         name="quantity"
         value="{{cart.quantity}}"
