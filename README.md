@@ -1,4 +1,4 @@
-# Project2
+# Food-City-Grocery
 
 ## Table of Contents
   - [Description](#description)
